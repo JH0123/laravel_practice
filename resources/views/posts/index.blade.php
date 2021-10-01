@@ -6,4 +6,5 @@
             </h2>
         </div>
     </x-slot>
-</x-app-layout>    
+    <x-post-list :posts="$posts" />
+</x-app-layout>
