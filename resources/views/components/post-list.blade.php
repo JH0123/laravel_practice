@@ -11,7 +11,7 @@
             @foreach ($posts as $post)
                 <tr>
                     <td>{{ $post->title }}</td>
-                    <td>{{ $post->user_id }}</td>
+                    <td>{{ $post->writer->name }}</td>
                     <td>{{ $post->created_at->diffForHumans() }}</td>
                 </tr>
             @endforeach
