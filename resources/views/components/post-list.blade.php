@@ -7,14 +7,14 @@
                 <th scope="col">작성일</th>
             </tr>
         </thead>
-        {{-- <tbody>
+        <tbody>
             @foreach ($posts as $post)
                 <tr>
-                    <td><a href="{{ route('posts.show',['post'=>$post->id]) }}">{{ $post->title }}</a></td>
-                    <td>{{ $post->writer->name }}</td>
+                    <td>{{ $post->title }}</td>
+                    <td>{{ $post->user_id }}</td>
                     <td>{{ $post->created_at->diffForHumans() }}</td>
                 </tr>
             @endforeach
-        </tbody> --}}
+        </tbody>
     </table>
 </div>
