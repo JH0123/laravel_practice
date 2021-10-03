@@ -11,6 +11,7 @@ class Post extends Model
 
     public function writer()
     {
+        // 일대다 관계(belongsTo)
         return $this->belongsTo(User::class, "user_id");
     }
 }
