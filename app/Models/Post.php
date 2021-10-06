@@ -9,6 +9,12 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "title",
+        "content",
+        "user_id"
+    ];
+
     public function writer()
     {
         // 일대다 관계(belongsTo)
