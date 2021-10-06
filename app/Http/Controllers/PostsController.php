@@ -36,7 +36,8 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        return view('posts.index');
     }
 
     /**
