@@ -8,15 +8,16 @@
         </div>
     </x-slot>
 
-    <div>
+    <div class="m-4 p-4">
     {{-- 파일 업로드 --}}
     <form class="row g-3" action="{{ route('posts.store') }}"
     method="post" enctype="multipart/form-data">
     @csrf{{-- 없으면 비활성화로 인해 페이지가 만료되었다는 페이지를 표시한다 --}}
+
     <div class="col-12 m-2">
     <label for="title" class="form-label">Title</label>
-    <input class="form-control" id="title" name="title" />
-    {{-- <textarea class="form=control" name="title" id="title">{{ old('title') }}</textarea> --}}
+    {{-- 오래된 데이터 표시? --}}
+    <textarea class="form=control" name="title" id="title">{{ old('title') }}</textarea>
   </div>
 
   <div class="col-12 m-2">
