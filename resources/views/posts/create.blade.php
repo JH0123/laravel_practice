@@ -27,7 +27,6 @@
   <div class="col-12 m-2">
     <label for="content" class="form-label">Content</label>
     <textarea class="form=control" name="content" id="content">{{ old('content') }}</textarea>
-    {{-- <input class="form-control" id="content" name="content" /> --}}
     @error('content')
       <span class="text-red-800">{{ $message }}</span>
     @enderror
