@@ -36,7 +36,8 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-
+        // title, content 중 하나라도 비워져 있을 경우 오류 메시지를 출력하게 함(유효성 검사)
+        $this->validate($request, ['title' => 'required', 'content' => 'required']);
         return view('posts.index');
     }
 

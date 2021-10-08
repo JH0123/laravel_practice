@@ -18,11 +18,19 @@
     <label for="title" class="form-label">Title</label>
     {{-- 오래된 데이터 표시? --}}
     <textarea class="form=control" name="title" id="title">{{ old('title') }}</textarea>
+    {{-- 입력을 하지 않을 시 에러메시지 출력 --}}  
+    @error('title')
+      <span class="text-red-800">{{ $message }}</span>
+    @enderror
   </div>
 
   <div class="col-12 m-2">
     <label for="content" class="form-label">Content</label>
-    <input class="form-control" id="content" name="content" />
+    <textarea class="form=control" name="content" id="content">{{ old('content') }}</textarea>
+    {{-- <input class="form-control" id="content" name="content" /> --}}
+    @error('content')
+      <span class="text-red-800">{{ $message }}</span>
+    @enderror
   </div>
 
   <div class="col-12 m-2">
