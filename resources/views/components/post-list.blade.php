@@ -11,7 +11,8 @@
     {{-- 게시글 표시 --}}
     @foreach ($posts as $post)
       <tr>
-        <td>{{ $post->title }}</td>
+        {{-- title을 클릭했을 시 show로 이동, post의 id값도 넘겨준다 --}}
+        <td><a href="{{ route('posts.show', ['post'=>$post->id]) }}">{{ $post->title }}</a></td>
         <td>{{ $post->writer->name }}</td>
         <td>{{ $post->created_at->diffForHumans() }}</td>
         {{-- diffForHumans()은 1개월까지의 날짜를 표시한다 --}}
