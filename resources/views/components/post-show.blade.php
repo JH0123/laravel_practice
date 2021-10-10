@@ -9,4 +9,8 @@
         <li class="list-group-item">작성일 : {{ $post->updated_at->diffForHumans() }}</li>
         <li class="list-group-item">작성자 : {{ $post->writer->name }}</li>
     </ul>
+    <div class="card-body">
+    <a href="{{ route('posts.edit',['post'=>$post->id]) }}" class="card-link">수정하기</a>
+    {{-- <a href="#" class="card-link"> 삭제하기</a> --}}
+  </div>
 </div>
