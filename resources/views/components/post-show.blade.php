@@ -9,8 +9,17 @@
         <li class="list-group-item">작성일 : {{ $post->updated_at->diffForHumans() }}</li>
         <li class="list-group-item">작성자 : {{ $post->writer->name }}</li>
     </ul>
-    <div class="card-body">
-    <a href="{{ route('posts.edit',['post'=>$post->id]) }}" class="card-link">수정하기</a>
-    {{-- <a href="#" class="card-link"> 삭제하기</a> --}}
-  </div>
+    <div class="card-body flex">
+        <a href="{{ route('posts.edit',['post'=>$post->id]) }}" class="card-link">수정하기</a>
+        
+        <div class="ml-4">
+        <form class="row g-3" action="{{ route('posts.destroy',['post'=>$post->id]) }}"
+        method="post" enctype="multipart/form-data">
+        @method('delete')
+        @csrf
+
+        <button type="submit">삭제하기</button>
+        </form>
+        </div>
+    </div>
 </div>
