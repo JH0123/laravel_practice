@@ -35,6 +35,11 @@
         </div>
 
         <div class="col-12 m-2">
+          <label for="image" class="form-label">Add image</label>
+          <input type="file" name="image" id="image" value="{{ old('image') }}">
+        </div>
+
+        <div class="col-12 m-2">
           <button type="submit" class="btn btn-info hover:bg-blue-700 font-bold text-white">Submit</button>
         </div>
   

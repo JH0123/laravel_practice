@@ -1,8 +1,15 @@
 <div class="container">
+    <div class="card" style="width: 80%;  margin:10px">
+        @if ($post->image)
+    <img src="{{ '/storage/images/'. $post->image }}" class="card-img-top" alt="post image">
+    @else
+    <span>첨부 이미지 없음</span>
+    @endif
     <div class="card-body">
         <h5 class="card-title">제목 : {{ $post->title }}</h5>
         <p class="card-text">내용 : {{ $post->content }}</p>
     </div>
+    
     <ul class="list-group list-group-flush">
         {{-- diffForHumans()를 적지 않았을 때는 연월일 시간이 다 표시된다 --}}
         <li class="list-group-item">등록일 : {{ $post->created_at->diffForHumans() }}</li>

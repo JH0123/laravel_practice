@@ -41,9 +41,25 @@ class PostsController extends Controller
         $this->validate($request, ['title' => 'required', 'content' => 'required|min:3']);
         // dd($request->all());
 
+        $fileName = null;
+        if ($request->hasFile('image')) { // 이미지 파일이 있는가?
+            // dd($request->file('image'));
+
+            // 사진이 있을 경우에만 사진 이름을 현재 시간 + 원래 파일 이름으로 함
+            $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('public/images', $fileName); //images 폴더에 사진을 저장
+            // dd($path);
+        }
+
         $input = array_merge($request->all(), ["user_id" => Auth::user()->id]);
         // dd($input);
+
+        // 이미지가 있다면 $input에 image 항목을 추가
+        if ($fileName) {
+            $input = array_merge($input, ['image' => $fileName]);
+        }
         Post::create($input);
+
         return redirect()->route('posts.index');
     }
 
