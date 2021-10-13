@@ -11,7 +11,7 @@
     <div class="m-4 p-4">
       <form class="row g-3" action="{{ route('posts.update',['post'=>$post->id]) }}"
       method="post" enctype="multipart/form-data">
-      @method('patch') {{-- 값 저장? --}}
+      @method('patch')
       @csrf
 
         <div class="col-12 m-2">
@@ -29,6 +29,18 @@
           @error('content')
             <span class="text-red-800">{{ $message }}</span>
           @enderror
+        </div>
+
+        <div class="col-12 m-2">
+          <div class="flex item-center">
+          <label for="image" class="form-label">Add image</label>
+          @if ($post->image)
+          <img src="{{ '/storage/images/'. $post->image }}"  alt="post image" class="h-20 w-20 rounded-full">
+          </div>
+          @else
+          <span>첨부 이미지 없음</span>
+          @endif
+          <input type="file" name="image" id="image">
         </div>
 
         <div class="col-12 m-2">

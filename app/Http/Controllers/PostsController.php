@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Strong;
 
 class PostsController extends Controller
 {
@@ -101,6 +103,16 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->title = $request->title;
         $post->content = $request->content;
+
+        // $request 안에 image가 있다면 image를 저장
+        if ($request->hasFile('image')) {
+            if ($post->image) { // 만약 $post에 image가 있다면 db에서 지우고 저장하고자 하는 image를 저장한다
+                Storage::delete('/storage/images' . $post->image);
+            }
+            $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
+            $post->image = $fileName;
+            $request->image->storeAs('public/images', $fileName);
+        }
 
         $post->save();
 
