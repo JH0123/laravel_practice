@@ -128,6 +128,9 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        if ($post->image) {
+            Storage::delete('public/images/' . $post->image);
+        }
         $post->delete();
         return redirect()->route('posts.index');
     }
