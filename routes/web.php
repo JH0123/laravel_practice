@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/posts', PostsController::class);
+Route::delete('/posts/images/{id}', [PostsController::class, "deleteImage"]);
 
 Route::get('/', function () {
     return view('dashboard');

@@ -6,7 +6,6 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use League\CommonMark\Extension\CommonMark\Node\Inline\Strong;
 
 class PostsController extends Controller
 {
@@ -128,10 +127,22 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        // 게시글에 이미지가 있다면 파일시스템에서도 삭제해줘야 한다
         if ($post->image) {
             Storage::delete('public/images/' . $post->image);
         }
         $post->delete();
         return redirect()->route('posts.index');
+    }
+
+    // 이미지만 삭제
+    public function deleteImage($id)
+    {
+        $post = Post::find($id);
+        Storage::delete('public/images/' . $post->image);
+        $post->image = null;
+        $post->save();
+
+        return redirect()->route('posts.edit', ['post' => $post->id]);
     }
 }
