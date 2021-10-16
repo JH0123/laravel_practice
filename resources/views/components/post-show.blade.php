@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container dark:text-black">
     <div class="card" style="width: 80%;  margin:10px">
         @if ($post->image)
     <img src="{{ '/storage/images/'. $post->image }}" class="card-img-top" alt="post image">
