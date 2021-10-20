@@ -11,7 +11,7 @@
         {{-- LikeButton --}}
         <div>
             {{-- <like-button :post="{{ $post }}" :loginuser="{{ auth()->user()->id }}" /> --}}
-            <like-button />
+            <example-component />
         </div>
     </div>
 
