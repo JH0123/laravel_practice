@@ -10,8 +10,7 @@
         <p class="card-text">내용 : {{ $post->content }}</p>
         {{-- LikeButton --}}
         <div>
-            {{-- <like-button :post="{{ $post }}" :loginuser="{{ auth()->user()->id }}" /> --}}
-            <example-component />
+            <like-button :post="{{ $post }}" :loginuser="{{ auth()->user()->id }}"/>
         </div>
     </div>
 

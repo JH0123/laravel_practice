@@ -47,5 +47,22 @@ export default {
       userIdArray: [],
     };
   },
+  methods: {
+    likeClicked() {
+      // like를 클릭시 서버에 like/unlike 요청 보내기
+      axios
+        .post("/like/" + this.post.id)
+        .then((response) => {
+          console.log(response.data);
+          this.like = !this.like;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    checkLike() {
+      this.like = this.userIdArray.includes(this.loginuser);
+    },
+  },
 };
 </script>
