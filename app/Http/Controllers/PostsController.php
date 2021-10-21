@@ -72,7 +72,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        // $id에 해당하는 Post를 데이터베이스에서 인출
+        // 엑세스할 때 관련 모델은 "laze loading"이 발생한다
+        // 속성에 처음 엑세스 할 때까지 관계 데이터가 실제로 로드되지 않음을 의미한다
         //eager loading (즉시 로딩)
         $post = Post::with('likes')->find($id);
         return view('posts.show', ['post' => $post]);
