@@ -21,4 +21,8 @@ class Post extends Model
         // 일대다 관계(belongsTo)
         return $this->belongsTo(User::class, "user_id");
     }
+    public function likes()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

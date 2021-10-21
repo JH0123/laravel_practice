@@ -60,9 +60,16 @@ export default {
           console.log(error);
         });
     },
-    checkLike() {
+    checkLikes() {
       this.like = this.userIdArray.includes(this.loginuser);
     },
+  },
+  created() {
+    // 원소 각각에 대해 retrun
+    this.userIdArray = this.post.likes.map((elem) => {
+      return elem.id;
+    });
+    this.checkLikes();
   },
 };
 </script>
