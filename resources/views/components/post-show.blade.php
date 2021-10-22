@@ -33,4 +33,7 @@
         </form>
         </div>
     </div>
+    <div>
+        <comment-list/>
+    </div>
 </div>
