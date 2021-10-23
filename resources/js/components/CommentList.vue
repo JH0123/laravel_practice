@@ -5,7 +5,17 @@
         <div class="panel-heading">
           <span class="glyphicon glyphicon-comment"></span>
           <h3 class="panel-title">Recent Comments</h3>
-          <span class="label label-info"> 78</span>
+          <textarea
+            class="form-control m-auto"
+            id="comment"
+            rows="2"
+          ></textarea>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2 m-2" type="submin">
+              등록
+            </button>
+          </div>
+          <!-- <span class="label label-info"> 78</span> -->
         </div>
         <div class="panel-body">
           <ul class="list-group">
@@ -163,3 +173,25 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["comment", "loginuser"],
+  data() {
+    return {
+      loginuser: [],
+      comment: "",
+      comments: [],
+    };
+  },
+  methods: {
+    submin() {
+      //등록 버튼을 클릭시 댓글이 등록된다
+      axios.post("/comment/" + post.id).then((response) => {
+        this.comments.push(response.data.comment); // submit을 하면 comments에 추가
+      });
+      this.comment = ""; // comment를 입력한 뒤 comment창 초기화
+    },
+  },
+};
+</script>
