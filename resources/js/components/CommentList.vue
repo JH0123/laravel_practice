@@ -1,6 +1,11 @@
 <template>
   <div>
-    <comment-item />
+    <button @click="getComment" class="btn btn-default">댓글 불러오기</button>
+    <comment-item
+      v-for="(comment, index) in comments"
+      :key="index"
+      :comment="comment"
+    />
   </div>
 </template>
 

@@ -39,6 +39,7 @@
                   </div>
                   <div class="comment-text">
                     <!-- {{ 작성한 댓글 들어갈 자리 }}   -->
+                    {{ comment }}
                   </div>
                   <div class="action">
                     <button
