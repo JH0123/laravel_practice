@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\LikesController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,9 @@ Route::get('/', function () {
 
 Route::post("/like/{post}", [LikesController::class, "store"])->middleware(["auth"])->name("like.store");
 
-Route::get('/comments/{post_id}', [CommentsController::class, 'index'])->name('comment.index');
-Route::post("/comments/{post_id}", [CommentsController::class], "store")->name('comment.store');
+Route::get('/comments/{post_id}', [CommentsController::class, 'index'])->middleware(['auth']);
+Route::post("/comments/{post_id}", [CommentsController::class], "store")->middleware(['auth']);
+Route::delete("/comments/{commentId}", [CommentsController::class], "destroy")->middleware(['auth']);
+Route::patch("/comments/{commentId}", [CommentsController::class], "update")->middleware(['auth']);
 
 require __DIR__ . '/auth.php';

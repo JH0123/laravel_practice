@@ -27,10 +27,20 @@ class CommentsController extends Controller
         ]);
         return $comment;
     }
-    public function update()
+    public function update(Request $request, $commentId)
     {
+        // 댓글 수정
+        $request->validate(['comment' => 'required']);  //유효성 검사 규칙
+        $comment = Comment::find($commentId);
+        $comment->update([
+            'comment' => $request->input('comment')
+        ]);
+        return $comment;
     }
-    public function destroy()
+    public function destroy($commentId)
     {
+        $comment = Comment::find($commentId);
+        $comment->delete(); //아이디를 이미 찾았기 때문에 줄 필요는 없다
+        return $comment;
     }
 }
