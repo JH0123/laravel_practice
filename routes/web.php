@@ -25,8 +25,8 @@ Route::get('/', function () {
 
 Route::post("/like/{post}", [LikesController::class, "store"])->middleware(["auth"])->name("like.store");
 
-Route::get('/comments/{postId}', [CommentsController::class, 'index'])->middleware(['auth']);
 Route::post("/comments/{postId}", [CommentsController::class], "store")->middleware(['auth']);
+Route::get('/comments/{postId}', [CommentsController::class, 'index'])->middleware(['auth']);
 Route::delete("/comments/{commentId}", [CommentsController::class], "destroy")->middleware(['auth']);
 Route::patch("/comments/{commentId}", [CommentsController::class], "update")->middleware(['auth']);
 

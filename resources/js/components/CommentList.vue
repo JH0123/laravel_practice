@@ -28,10 +28,10 @@ export default {
       //   "4th comment",
       //   "5th comment",
       // ];
-      // http요청
       axios
         .get("/comments/" + this.post.id)
         .then((response) => {
+          console.log(response);
           this.comments = response.data;
         })
         .catch((error) => {

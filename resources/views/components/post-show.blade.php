@@ -34,6 +34,6 @@
         </div>
     </div>
     <div>
-        <comment-list/>
+        <comment-list :post="{{ $post }}" :loginuser="{{ auth()->user()->id }}"/>
     </div>
 </div>
