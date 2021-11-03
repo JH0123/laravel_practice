@@ -23,6 +23,8 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/search', [PostsController::class], "search");
+
 Route::post("/like/{post}", [LikesController::class, "store"])->middleware(["auth"])->name("like.store");
 
 Route::post("/comments/{postId}", [CommentsController::class], "store")->middleware(['auth']);
