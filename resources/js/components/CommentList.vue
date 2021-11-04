@@ -31,7 +31,7 @@ export default {
       axios
         .get("/comments/" + this.post.id)
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           this.comments = response.data;
         })
         .catch((error) => {

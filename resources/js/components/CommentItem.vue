@@ -24,18 +24,19 @@
                 <div class="col-xs-10 col-md-11">
                   <div>
                     <!-- 작성한 사람 -->
-                    <a href="http://bootsnipp.com/BhaumikPatel/snippets/Obgj"
-                      >Admin Panel Quick Shortcuts</a
-                    >
+                    <a href="#" class="hover:underline text-sm">
+                      {{ comment.user.name }}
+                    </a>
                     <div class="mic-info">
                       <!-- 작성한 날짜 -->
-                      By: <a href="#">Bhaumik Patel</a> on 11 Nov 2013
+                      on 11 Nov 2013
                     </div>
                   </div>
                   <div class="comment-text">
                     <!-- {{ 작성한 댓글 들어갈 자리 }}   -->
-                    {{ comment }}
+                    {{ comment.comment }}
                   </div>
+
                   <div class="action">
                     <button
                       type="button"
