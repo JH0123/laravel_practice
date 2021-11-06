@@ -9,11 +9,7 @@
         ></textarea>
       </div>
       <div class="mt-2 text-right">
-        <button
-          @click="addComment"
-          class="btn btn-primary btn-sm shadow-none"
-          type="button"
-        >
+        <button @click="addComment" class="btn btn-primary btn-sm shadow-none">
           등록
         </button>
       </div>
@@ -73,13 +69,6 @@ export default {
         });
     },
     getComments() {
-      // this.comments = [
-      //   "1st comment",
-      //   "2nd comment",
-      //   "3rd comment",
-      //   "4th comment",
-      //   "5th comment",
-      // ];
       axios
         .get("/comments/" + this.post.id)
         .then((response) => {
