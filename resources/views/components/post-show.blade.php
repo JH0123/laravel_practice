@@ -21,9 +21,12 @@
         <li class="list-group-item">작성자 : {{ $post->writer->name }}</li>
     </ul>
     <div class="card-body flex">
+        @can('update',$post)
         <a href="{{ route('posts.edit',['post'=>$post->id]) }}" class="card-link">수정하기</a>
-        
+        @endcan
+
         <div class="ml-4">
+            @can('delete',$post)
         <form class="row g-3" action="{{ route('posts.destroy',['post'=>$post->id]) }}"
         method="post" enctype="multipart/form-data">
         @method('delete')
@@ -31,6 +34,7 @@
 
         <button type="submit">삭제하기</button>
         </form>
+         @endcan
         </div>
     </div>
     <div>
