@@ -106,6 +106,9 @@ class PostsController extends Controller
         $this->validate($request, ['title' => 'required', 'content' => 'required|min:3']);
 
         $post = Post::find($id);
+
+        $this->authorize('update', $post);
+
         $post->title = $request->title;
         $post->content = $request->content;
 
@@ -133,6 +136,8 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
+        $this->authorize('delete', $post);
         // 게시글에 이미지가 있다면 파일시스템에서도 삭제해줘야 한다
         if ($post->image) {
             Storage::delete('public/images/' . $post->image);
@@ -145,6 +150,8 @@ class PostsController extends Controller
     public function deleteImage($id)
     {
         $post = Post::find($id);
+        $this->authorize('delete', $post);
+
         Storage::delete('public/images/' . $post->image);
         $post->image = null;
         $post->save();
