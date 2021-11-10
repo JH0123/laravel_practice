@@ -26,7 +26,7 @@
         @endcan
 
         <div class="ml-4">
-            @can('delete',$post)
+        @can('delete',$post)
         <form class="row g-3" action="{{ route('posts.destroy',['post'=>$post->id]) }}"
         method="post" enctype="multipart/form-data">
         @method('delete')
