@@ -41,6 +41,7 @@
                     <button
                       type="button"
                       class="btn btn-primary btn-xs"
+                      v-if="comment.user_id == login_user_id"
                       title="Edit"
                     >
                       <span class="glyphicon glyphicon-pencil"></span>
@@ -48,6 +49,7 @@
                     <button
                       type="button"
                       class="btn btn-success btn-xs"
+                      v-if="comment.user_id == login_user_id"
                       title="Approved"
                     >
                       <span class="glyphicon glyphicon-ok"></span>
@@ -55,6 +57,7 @@
                     <button
                       type="button"
                       class="btn btn-danger btn-xs"
+                      v-if="comment.user_id == login_user_id"
                       title="Delete"
                     >
                       <span class="glyphicon glyphicon-trash"></span>
@@ -75,6 +78,6 @@
 
 <script>
 export default {
-  props: ["comment"],
+  props: ["comment", "login_user_id"],
 };
 </script>
