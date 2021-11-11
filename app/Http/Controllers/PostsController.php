@@ -164,6 +164,6 @@ class PostsController extends Controller
         $search_text = $_GET['query'];
         $post = Post::where('title', 'LIKE', '%' . $search_text . '%')->get();
 
-        return view('posts.search', compact('posts'));
+        return view('posts.search', compact('post'));
     }
 }
