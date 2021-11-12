@@ -1,8 +1,16 @@
 @extends('layouts.navigation')
 
-@section('search_content')
-
-<table class="table dark:text-gray-300">
+<x-app-layout>
+    <x-slot name="header">
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-300">
+              {{ __('Posts') }}
+            </h2>
+             <button onclick=location.href="{{ route('posts.create') }}" class="btn btn-info hover:bg-blue-700 font-bold text-white">글쓰기</button>
+        </div>
+    </x-slot>
+    <div class="m-4 p-4">
+    <table class="table dark:text-gray-300">
     <thead>
       <tr>
         <th scope="col">제목</th>
@@ -23,5 +31,5 @@
     @endforeach
       </tbody>
       </table>
-
-@endsection
+      </div>
+</x-app-layout>
