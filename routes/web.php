@@ -24,6 +24,7 @@ Route::get('/', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/search', [PostsController::class, "search"]);
+// Route::get('/mypage', [PostsController::class, "mypage"])->middleware(["auth"]);
 
 Route::post("/like/{post}", [LikesController::class, "store"])->middleware(["auth"])->name('like.store');
 
