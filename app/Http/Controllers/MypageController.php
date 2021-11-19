@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class MypageController extends Controller
 {
@@ -15,9 +12,7 @@ class MypageController extends Controller
     }
     public function mypage()
     {
-        // $posts = new User();
-        // $posts = Auth::find()->user($id);
-        $posts = Post::where('user_id', auth()->id())->get();
+        $posts = Post::where('user_id', auth()->id())->latest()->paginate(10);
         return view('mypage', ['posts' => $posts]);
     }
 }
