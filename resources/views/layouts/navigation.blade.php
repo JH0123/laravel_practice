@@ -21,11 +21,11 @@
                         {{ __('Posts') }}
                     </x-nav-link>
                 </div>
-                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('posts.mypage')" :active="request()->routeIs('posts.mypage')">
-                        {{ __('Mypage') }}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('mypage')" :active="request()->routeIs('mypage')">
+                        {{ __('MyPage') }}
                     </x-nav-link>
-                </div> --}}
+                </div>
             </div>
 
             <!-- Dark Mode / Light Mode -->
@@ -98,7 +98,7 @@
         </div>
 
          {{-- <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('posts.mypage')" :active="request()->routeIs('posts.mypage')">
+            <x-responsive-nav-link :href="route('mypage')" :active="request()->routeIs('mypage')">
                 {{ __('Mypage') }}
             </x-responsive-nav-link>
         </div> --}}

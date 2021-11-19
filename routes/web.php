@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\LikesController;
+use App\Http\Controllers\MypageController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,8 @@ Route::get('/', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/search', [PostsController::class, "search"]);
-// Route::get('/mypage', [PostsController::class, "mypage"])->middleware(["auth"]);
+
+Route::get('/mypage', [MypageController::class, "mypage"])->middleware(["auth"])->name('mypage');
 
 Route::post("/like/{post}", [LikesController::class, "store"])->middleware(["auth"])->name('like.store');
 

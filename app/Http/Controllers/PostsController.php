@@ -167,9 +167,4 @@ class PostsController extends Controller
 
         return view('posts.search', ['posts' => $posts]);
     }
-    // public function mypage()
-    // {
-    //     $posts = Post::latest()->paginate(10);
-    //     return view('posts.mypage', ['posts' => $posts]);
-    // }
 }
