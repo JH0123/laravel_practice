@@ -10,7 +10,8 @@
         <p class="card-text">내용 : {{ $post->content }}</p>
         {{-- LikeButton --}}
         <div>
-            <like-button :post="{{ $post }}" :loginuser="{{ auth()->user()->id }}"/>
+            <like-button :post="{{ $post }}" :loginuser="{{ auth()->user()->id }}" />
+                {{-- <example-component /> --}}
         </div>
     </div>
 
@@ -38,6 +39,6 @@
         </div>
     </div>
     <div>
-        <comment-list :post="{{ $post }}" :loginuser="{{ auth()->user()->id }}"/>
+        {{-- <comment-list :post="{{ $post }}" :loginuser="{{ auth()->user()->id }}" /> --}}
     </div>
 </div>
