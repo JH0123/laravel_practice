@@ -51,7 +51,6 @@ class PostsController extends Controller
             $path = $request->file('image')->storeAs('public/images', $fileName); //images 폴더에 사진을 저장
             // dd($path);
         }
-
         $input = array_merge($request->all(), ["user_id" => Auth::user()->id]);
         // dd($input);
 
